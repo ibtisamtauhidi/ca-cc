@@ -1,0 +1,10 @@
+<launch>
+  <arg name="map"  default="my_world"/>  
+  <node pkg="sun_project" type="createRCC8" name="GridMapToRCC8">
+    <param name="map" value="$(arg map)" />
+  </node>  
+  <node name="sun_rcc8_ui" pkg="sun_project" type="rcc8.py">
+	  <param name="map" value="$(find sun_project)" />
+  </node>
+  <node name="sun_joy" pkg="sun_project" type="joy_rcc8.py" />
+</launch>
